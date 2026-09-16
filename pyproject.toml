@@ -2,7 +2,8 @@
 DJANGO_SETTINGS_MODULE = "config.settings"
 testpaths = ["tests"]
 pythonpath = ["."]
-addopts = "--strict-markers"
+addopts = "--strict-markers --liveserver=127.0.0.1"
+markers = ["e2e: end-to-end tests with live HTTP server"]
 
 [tool.mypy]
 python_version = "3.12"
