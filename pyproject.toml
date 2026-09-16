@@ -1,0 +1,22 @@
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "--strict-markers"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["config", "shortener", "tests", "manage.py"]
+plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "config.settings"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["shortener/migrations"]
+
+[tool.ruff.lint]
+extend-select = ["E", "W", "ANN", "DJ"]
