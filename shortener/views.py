@@ -31,7 +31,7 @@ class ExpandView(APIView):
         try:
             shortened_url = ShortenedUrl.objects.get(code=serializer.validated_data["code"])
         except ShortenedUrl.DoesNotExist:
-            raise NotFound("URL not found.") from None
+            raise NotFound("Short URL not found.") from None
 
         output = ShortenedUrlSerializer(shortened_url, context={"request": request})
         return Response(output.data)
